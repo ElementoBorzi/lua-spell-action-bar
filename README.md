@@ -46,3 +46,45 @@ CREATE TABLE `index_spell_bonus_action_conditions` (
 ## Configuration
 Just edit the database name in : 
 > lua-spell-action-bar\ServerSide\Config\Spell_Action_Bar_Cfg.lua
+
+## Use
+Once the project has been set up correctly, each player event will trigger a check of the conditions associated with that type of event (e.g. equipping an item). If all conditions are met, the corresponding effect will be triggered.
+
+## Exemple
+I'd like to display spell 59752 (Will to Survive) to players who have the hearthstone in their bags, in Northrend, Dalaran and Runeweaver Square.
+
+**MySQL Code**
+```sql
+INSERT INTO `index_spell_bonus_action` VALUES ('59752', 'air-extrabutton');
+
+INSERT INTO `index_spell_bonus_action_conditions` (`spell_id`, `condition_type`, `condition_value`) VALUES
+('59752', 'item', '6948'),
+('59752', 'map_id', '571'),
+('59752', 'zone_id', '4395'),
+('59752', 'area_id', '4739');
+```
+
+**In-game command**
+```bash
+.reload eluna
+```
+
+**MySQL Code**
+```sql
+INSERT INTO `index_spell_bonus_action` VALUES ('59752', 'air-extrabutton');
+
+INSERT INTO `index_spell_bonus_action_conditions` (`spell_id`, `condition_type`, `condition_value`) VALUES
+('59752', 'item', '6948'),
+('59752', 'map_id', '571'),
+('59752', 'zone_id', '4395'),
+('59752', 'area_id', '4739');
+```
+
+**In-game command**
+```bash
+.reload eluna
+```
+
+**Result**
+
+![image](https://github-production-user-asset-6210df.s3.amazonaws.com/125808072/255312077-ca18b050-c444-40fd-a0f6-dae72bff3501.png)
