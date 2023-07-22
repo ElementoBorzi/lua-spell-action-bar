@@ -98,7 +98,7 @@ function Spell_Action_Bar.SetTexture(texture)
     Spell_Action_Bar.Texture = Spell_Action_Bar.Frame:CreateTexture()
     Spell_Action_Bar.Texture:SetSize(250, 120)
     Spell_Action_Bar.Texture:SetPoint("CENTER")
-    Spell_Action_Bar.Texture:SetTexture("Interface/extrabutton/" .. texture)
+    Spell_Action_Bar.Texture:SetTexture("Interface/actionbttns/" .. texture)
 end
 
 function Server.StartCooldown()
